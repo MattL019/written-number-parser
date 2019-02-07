@@ -1,6 +1,5 @@
 import numberBank from './numberBank'
-
-import {
+import { 
   removePunctuation
 } from './helpers'
 
@@ -126,16 +125,16 @@ export default class NumberParser {
    */
   extractSubjects(string: string): string[] {
     return removePunctuation(string.split(" "))
-      .map((x: string) => this.isWrittenNumber(x) ? x : "|")
+      .map(x => this.isWrittenNumber(x) ? x : "|")
       .join(" ").split("|")
-      .map((x: string) => x.trim()
+      .map(x => x.trim()
         .split(` ${this.config.conjunctionWord} `)
         .map(x => x.trim())
         .join(" ")
       )
-      .filter((x: string) =>
+      .filter(x =>
         (x !== " " && x.length > 0 && x !== this.config.conjunctionWord)
-      ).map((x: string) => x.trim())
+      ).map(x => x.trim())
   }
 
   /**

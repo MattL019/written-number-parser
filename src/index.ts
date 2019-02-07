@@ -1,5 +1,8 @@
-const numberBank = require('./numberBank')
-const { removePunctuation } = require('./helpers')
+import numberBank from './numberBank'
+
+import {
+  removePunctuation
+} from './helpers'
 
 interface Config {
   dev?: boolean, // show debug messages,
@@ -7,14 +10,14 @@ interface Config {
   conjunctionWord?: string // word used for connecting numbers e.g 'one hundred AND five' - 'and' by default
 }
 
-class NumberParser {
+export default class NumberParser {
   public config: Config
 
   constructor(config: Config = {}) {
     // Defualt config
     this.config = {
       dev: false,
-      numberBank: numberBank.default,
+      numberBank,
       conjunctionWord: "and",
       ...config
     }
@@ -150,5 +153,3 @@ class NumberParser {
     )
   }
 }
-
-module.exports = NumberParser

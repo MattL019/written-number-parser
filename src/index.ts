@@ -1,7 +1,5 @@
-import numberBank from './numberBank'
-import { 
-  removePunctuation
-} from './helpers'
+const numberBank = require('./numberBank')
+const { removePunctuation } = require('./helpers')
 
 interface Config {
   dev?: boolean, // show debug messages,
@@ -16,7 +14,7 @@ class NumberParser {
     // Defualt config
     this.config = {
       dev: false,
-      numberBank,
+      numberBank: numberBank.default,
       conjunctionWord: "and",
       ...config
     }
@@ -125,16 +123,16 @@ class NumberParser {
    */
   extractSubjects(string: string): string[] {
     return removePunctuation(string.split(" "))
-      .map(x => this.isWrittenNumber(x) ? x : "|")
+      .map((x: string) => this.isWrittenNumber(x) ? x : "|")
       .join(" ").split("|")
-      .map(x => x.trim()
+      .map((x: string) => x.trim()
         .split(` ${this.config.conjunctionWord} `)
         .map(x => x.trim())
         .join(" ")
       )
-      .filter(x =>
+      .filter((x: string) =>
         (x !== " " && x.length > 0 && x !== this.config.conjunctionWord)
-      ).map(x => x.trim())
+      ).map((x: string) => x.trim())
   }
 
   /**
@@ -153,4 +151,4 @@ class NumberParser {
   }
 }
 
-export default NumberParser
+module.exports = NumberParser

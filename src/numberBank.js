@@ -13,9 +13,3 @@ export default {
   "septillion", "octillion", "nonillion", "duodecillion", "tredecillion", "quattuordecillion", "quindecillion",
   "sexdecillion", "septemdecillion", "octodecillion", "novemdecillion", "vigintillion"],
 }
-
-// eight billion nine hundred and fourty seven -> 8,000,000,947
-// one hundred and fourty seven thousand
-
-// 47,000
-// 100,000

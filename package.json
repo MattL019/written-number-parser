@@ -1,6 +1,6 @@
 {
   "name": "written-number-parser",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Parses a string for any numbers, written or numeric",
   "main": "./dist/bundle.js",
   "scripts": {

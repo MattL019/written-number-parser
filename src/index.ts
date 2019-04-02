@@ -152,3 +152,5 @@ export default class NumberParser {
     )
   }
 }
+
+(<any>window).numberParser = NumberParser

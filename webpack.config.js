@@ -1,6 +1,7 @@
 const path = require('path')
 
 module.exports = {
+  target: 'web',
   entry: './src/index.ts',
   output: {
     filename: 'bundle.js',
